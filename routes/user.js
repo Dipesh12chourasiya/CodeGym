@@ -38,4 +38,9 @@ router.post('/signup', async (req, res) => {
     return res.redirect("/");
 });
 
+
+router.get('/exersise', (req, res) => {
+    return res.render("exersise");
+})
+
 module.exports = router;

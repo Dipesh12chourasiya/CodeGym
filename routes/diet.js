@@ -20,8 +20,4 @@ router.get('/humandiet', (req, res) => {
 
 
 
-
-
-
-
 module.exports = router;
