@@ -1,74 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise Gallery</title>
+    <title>Image Background Button</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+
+        body{
+            background-color: black;
         }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
+        a {
+            font-weight: 600;
+            font-size: 30px;
+            color: white;
         }
-        h1 {
+
+        /* Style for the button */
+        .image-button1 {
+            margin: 0 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-image: url('https://images.pexels.com/photos/7094172/pexels-photo-7094172.jpeg?auto=compress&cs=tinysrgb&w=600');
+            /* Replace 'your-image.jpg' with the actual path or URL of your image */
+            background-size: cover;
             text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            width: 30vw;
+            height: 60vh;
         }
-        .exercise {
-            margin-bottom: 40px;
-            overflow: hidden;
+
+        .image-button2 {
+            margin: 0 20px;
+
+            display: inline-block;
+            padding: 10px 20px;
+            background-image: url('https://media.istockphoto.com/id/1420515189/photo/exercise-workout-and-training-with-a-healthy-man-training-for-sport-fitness-and-wellness.jpg?b=1&s=612x612&w=0&k=20&c=eXGad7PRRP-0A8JoYvQW4PvMckMaFRZs9FGLkKm8GXw=');
+            /* Replace 'your-image.jpg' with the actual path or URL of your image */
+            background-size: contain;
+            object-fit: cover;
+            color: #fff;
+            /* Text color */
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            width: 25vw;
+            height: 60vh;
+
         }
-        .exercise img {
-            float: left;
-            margin-right: 20px;
-            max-width: 200px;
-            border-radius: 5px;
+
+        .image-button3 {
+            margin: 0 20px;
+
+            display: inline-block;
+            padding: 10px 20px;
+            background-image: url('https://media.istockphoto.com/id/1151770135/photo/athletic-woman-exercising-push-ups-in-a-health-club.jpg?b=1&s=612x612&w=0&k=20&c=8OBmjaqEM3q82cNrgE6WpxqTIRhHwvqJZjPCm4jTCWw=');
+            /* Replace 'your-image.jpg' with the actual path or URL of your image */
+            background-size: contain;
+            color: #fff;
+            /* Text color */
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            width: 25vw;
+            height: 60vh;
+
         }
-        .exercise-content {
-            overflow: hidden;
-        }
-        .exercise-content h2 {
-            margin-top: 0;
-        }
-        .exercise-content p {
-            margin-top: 5px;
+
+        /* Hover effect */
+        .image-button:hover {
+            opacity: 0.8;
+            /* Adjust the opacity for the hover effect */
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Exercise Gallery</h1>
-        
-        <div class="exercise">
-            <img src="https://via.placeholder.com/200" alt="Exercise 1">
-            <div class="exercise-content">
-                <h2>Push-ups</h2>
-                <p>Push-ups are a great bodyweight exercise that work your chest, shoulders, triceps, and core muscles.</p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FitHit</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <div class="exercise">
-            <img src="https://via.placeholder.com/200" alt="Exercise 2">
-            <div class="exercise-content">
-                <h2>Squats</h2>
-                <p>Squats are a compound exercise that targets your quadriceps, hamstrings, glutes, and lower back.</p>
+    <% if (locals.error) { %>
+        <div class="container my-4">
+            <div class="alert alert-danger" role="alert">
+                <%= locals.error %>
             </div>
         </div>
+        <% } %>
 
-        <div class="exercise">
-            <img src="https://via.placeholder.com/200" alt="Exercise 3">
-            <div class="exercise-content">
-                <h2>Plank</h2>
-                <p>The plank is an isometric exercise that strengthens your core muscles, including your abs, back, and shoulders.</p>
-            </div>
-        </div>
+            <!-- Button with image background -->
+            <a href="/diet/abs" class="image-button1">Abs Training</a>
+            <a href="/diet/legs" class="image-button2">Legs Training</a>
+            <a href="/diet/chest" class="image-button3">Chest Training</a>
 
-        <!-- Add more exercises as needed -->
-
-    </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+
 </html>

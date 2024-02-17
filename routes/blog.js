@@ -24,6 +24,23 @@ router.get('/add-new', (req, res) => {
     });
 });
 
+router.get('/abs', (req, res) => {
+    return res.render("abs", {
+        user: req.user,
+    });
+});
+
+router.get('/chest', (req, res) => {
+    return res.render("chest", {
+        user: req.user,
+    });
+});
+router.get('/legs', (req, res) => {
+    return res.render("legs", {
+        user: req.user,
+    });
+});
+
 
 router.get('/:id', async (req, res) => {
     const blog = await Blog.findById(req.params.id).populate("createdBy");

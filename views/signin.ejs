@@ -7,6 +7,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignIn</title>
+    <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/39671/physiotherapy-weight-training-dumbbell-exercise-balls-39671.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-repeat: no-repeat;
+            background-size: cover;
+            backdrop-filter: blur(3px);
+            overflow: hidden;
+            /* color: white; */
+        }
+
+        .white{
+            color: white;
+            font-weight: 600;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -16,14 +32,14 @@
         <div class="container mt-4">
             <form action="/user/signin" method="post">
                 <div class="form-group my-3">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <label for="exampleInputEmail1" class="white">Email address</label>
+                    <input type="email" class="form-control white" id="exampleInputEmail1" aria-describedby="emailHelp"
                         placeholder="Enter email" name="email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    <small id="emailHelp" class="form-text white">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group my-3">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label for="exampleInputPassword1" class="white">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
