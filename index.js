@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 
 
 const userRoute = require("./routes/user");
+const dietRoute = require("./routes/diet");
 const { checkForAuthenticationCookie } = require("./middlewares/auth");
 
 const app = express();
@@ -32,5 +33,8 @@ app.get('/',async (req, res) => {
 });
 
 app.use('/user', userRoute);
+app.use('/diet', dietRoute);
+
+
 
 app.listen(PORT, () => console.log(`server started at ${PORT}`));

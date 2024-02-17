@@ -25,19 +25,26 @@
             object-fit: cover;
         }
 
+        .cardCon {
+            position: relative;
+            top: 45px;
+        }
+
         .card {
+            display: inline-block;
             position: relative;
             left: 43em;
-            width: 300px;
+            width: 250px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin-right: 28px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         .card img {
             width: 100%;
-            height: auto;
+            height: 119px;
             border-radius: 5px;
             margin-bottom: 10px;
         }
@@ -63,6 +70,14 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        .searchBar {
+            position: relative;
+            width: 20em;
+            height: 40px;
+            left: 55em;
+            top: 31px;
+        }
     </style>
 </head>
 
@@ -72,14 +87,34 @@
             <img src="images/gg.avif" alt="123">
         </div>
 
-        <!-- <div class="cardCon"> -->
+        <!-- <h1>Write what you want to search</h1> -->
+        <div class="searchBar">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <a href="/video/diet">search</a>
+            </form>
+        </div>
+
+        <div class="cardCon">
+            <div class="card">
+                <img src="images/diettt.jpg" alt="Image">
+                <h3>Title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="/user/diet">Explore</a>
+            </div>
             <div class="card">
                 <img src="images/gg.avif" alt="Image">
                 <h3>Title</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <a href="/user/diet">Explore</a>
             </div>
-        <!-- </div> -->
+            <div class="card">
+                <img src="images/gg.avif" alt="Image">
+                <h3>Diet</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="/diet/humandiet">Explore</a>
+            </div>
+        </div>
 
         <%- include('./partials/scripts') %>
 </body>
