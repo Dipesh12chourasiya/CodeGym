@@ -3,6 +3,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
+const { google } = require('googleapis');
+const bodyParser = require('body-parser');
+
+
+const apiKey = 'AIzaSyDKcjFBfJczIUVKD43mwBJtOkKsdnJaVGg';
+const youtube = google.youtube({ version: 'v3', auth: apiKey });
 
 const userRoute = require("./routes/user");
 const dietRoute = require("./routes/diet");
@@ -25,12 +31,24 @@ app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
 app.use(express.static(path.resolve("./public")));
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //Routes
-app.get('/',async (req, res) => {
+app.get('/', async (req, res) => {
     res.render('home', {
         user: req.user,
     });
 });
+
+// utube
+app.get('/utube', (req, res) => {
+    res.render('utube' , {
+        user: req.user,
+    });
+});
+
+
+
 
 app.use('/user', userRoute);
 app.use('/diet', dietRoute);
