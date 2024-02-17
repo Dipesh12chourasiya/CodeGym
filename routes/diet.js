@@ -18,10 +18,13 @@ router.get('/humandiet', (req, res) => {
     res.render('diete', { dietPlan });
 });
 
+router.get('/humandiet/utube', (req, res) => {
+    res.render('utube', { 
+        user: req.user
+     });
+});
 
-router.get('/utube' ,(req , res)=>{
-    res.render('utube');
-} )
+
 
 module.exports = router;
 

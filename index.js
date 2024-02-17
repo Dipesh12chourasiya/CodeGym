@@ -6,10 +6,14 @@ const cookieParser = require("cookie-parser");
 const { google } = require('googleapis');
 const bodyParser = require('body-parser');
 
+//model
+const Blog = require("./models/blog")
+
 
 const apiKey = 'AIzaSyDKcjFBfJczIUVKD43mwBJtOkKsdnJaVGg';
 const youtube = google.youtube({ version: 'v3', auth: apiKey });
 
+const blogRoute = require("./routes/blog");
 const userRoute = require("./routes/user");
 const dietRoute = require("./routes/diet");
 const { checkForAuthenticationCookie } = require("./middlewares/auth");
@@ -26,10 +30,12 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve('./views'));
 
 //MiddleWare
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
 app.use(express.static(path.resolve("./public")));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -41,17 +47,26 @@ app.get('/', async (req, res) => {
 });
 
 // utube
-app.get('/utube', (req, res) => {
-    res.render('utube' , {
+ 
+app.get('/utube', (req,res)=>{
+    res.render('utube' ,{
         user: req.user,
+    })
+})
+
+app.get('/allBlogs',async (req, res) => {
+    const allBlogs = await Blog.find({});
+    res.render('allblogs', {
+        user: req.user,
+        blogs: allBlogs,
     });
 });
 
 
-
-
 app.use('/user', userRoute);
 app.use('/diet', dietRoute);
+app.use("/blog",blogRoute);
+
 
 
 

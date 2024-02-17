@@ -78,11 +78,35 @@
             left: 55em;
             top: 31px;
         }
+        .videoContainer{
+          display: flex;
+           margin-left: 109px;
+           flex-wrap: wrap;
+        }
+        .videoContainer iframe{
+          margin: 10px 34px;
+        }
     </style>
 </head>
 
 <body>
-    <%- include('./partials/nav') %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">FitHit</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
         
 
         <!-- <h1>Write what you want to search</h1> -->
@@ -101,37 +125,28 @@
         </div>
 
 
-        <div class="row">
-          <div class="col-md-12">
-            <div id="videos">
+        <div class="videoContainer">
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/lu_BObG6dj8?si=QYxUoq47gNN25Ch8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-            </div>
-          </div>
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/fD4OyUDfL3U?si=Pt3pZ_7ms5zekxr2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/BU5cxNJJjic?si=FwfGh5N70P0qEuaF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/HiJ1uLuTNxo?si=EKZq5tOdos0nRT1k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/xW79HPiyidk?si=qIISTosoOStce8dJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/ef4BP33ZEmo?si=0AlWhDrjxO-is0Wn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/-C9T0rLOCt0?si=Nlb6UhEPdvfUITsN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/-SNhE_IIEkg?si=_ohcC-k3UCPnObEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          <iframe width="390" height="255" src="https://www.youtube.com/embed/an0rksMcJoA?si=3oT_zuUXkPPAFYOB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         
-
-        <%- include('./partials/scripts') %>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script>
-          $(document).ready(function(){
-            const API_KEY = "AIzaSyDWP1EyUscplEK3C5JulZtUws9HwtA5hqE"
-
-            $("#form").submit(function(event){
-              event.preventDefault();
-              alert("form submited");
-
-              var search = $("#search").val()
-
-              videoSearch(API_KEY , search , 10)
-            })
-
-            function videoSearch(key, search , maxResult){
-              $.get("/www.googleapis.com/youtube/v3/search?key=" + key + "&type=video&part=snippet&maxResults=" + maxResult + "&q=" + search , function(data){
-                console.log(data);
-              })
-            }
-          })
-        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
