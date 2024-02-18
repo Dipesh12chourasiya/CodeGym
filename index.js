@@ -3,15 +3,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
-const { google } = require('googleapis');
 const bodyParser = require('body-parser');
 
 //model
 const Blog = require("./models/blog")
 
-
-const apiKey = 'AIzaSyDKcjFBfJczIUVKD43mwBJtOkKsdnJaVGg';
-const youtube = google.youtube({ version: 'v3', auth: apiKey });
 
 const blogRoute = require("./routes/blog");
 const userRoute = require("./routes/user");

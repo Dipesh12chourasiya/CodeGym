@@ -17,7 +17,7 @@ GymCode is a web application designed to help users manage their fitness journey
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/GymCode.git
+    git clone https://github.com/Dipesh12chourasiya/GymCode.git
     ```
 
 2. Install dependencies:
