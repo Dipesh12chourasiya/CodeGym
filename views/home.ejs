@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/x-icon" href="https://tse4.mm.bing.net/th?id=OIP.Aw0zgAtGa2vLuCyOkHiT_QHaHZ&pid=Api&P=0&h=180">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta charset="UTF-8">
@@ -108,7 +109,18 @@
             left: 820px;
             top: 73px;
         }
-        
+
+        .BMI {
+            position: relative;
+            left: 1300px;
+            top: 14em;
+            text-decoration: none;
+            color: white;
+            background-color: rgb(32, 122, 7);
+            border: 2px solid black;
+            border-radius: 3px;
+            height: 25px;
+        }
     </style>
 </head>
 
@@ -153,6 +165,8 @@
                 <a href="/diet/humandiet"><button class="bg-secondary btn">Explore</button></a>
             </div>
         </div>
+
+        <a href="/diet/bmi" class="BMI"><span>Know your BMI</span></a>
 
         <%- include('./partials/scripts') %>
 </body>

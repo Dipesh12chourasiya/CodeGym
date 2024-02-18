@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="icon" type="image/x-icon" href="https://tse4.mm.bing.net/th?id=OIP.Aw0zgAtGa2vLuCyOkHiT_QHaHZ&pid=Api&P=0&h=180">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body {
+    font-family: 'Arial', sans-serif;
+    background: black;
+    text-align: center;
+    margin: 50px;
+  }
+  .container{
+    background-color: white;
+    
+   
+  }
+  h1 {
+    color: #333;
+  }
+
+  label {
+    font-weight: bold;
+    color: #555;
+  }
+
+  input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 200px;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  #result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">FitHit</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <% if (locals.user) { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/blog/add-new">Add Blog</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= user.fullName %>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                  </ul>
+                </li>
+                <% } else{ %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/signup">Create Account</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/user/signin">Log in</a>
+                  </li>
+                  <% } %>
+                  
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <% if (locals.error) { %>
+        <div class="container my-4">
+          <div class="alert alert-danger" role="alert">
+            <%= locals.error %>
+          </div>
+        </div>
+        <% } %>
+
+<div class="container">
+  <h1>BMI Calculator</h1>
+  
+  <label for="weight">Enter your weight (kg):</label>
+  <input type="number" id="weight" step="0.1" required><br>
+
+  <label for="height">Enter your height (m):</label>
+  <input type="number" id="height" step="0.01" required><br>
+
+  <button onclick="calculateBMI()">Calculate BMI</button>
+</div>  
+
+  <p id="result"></p>
+
+
+  <script>
+    function calculateBMI() {
+      // Get weight and height input values
+      const weight = parseFloat(document.getElementById('weight').value);
+      const height = parseFloat(document.getElementById('height').value);
+
+      // Calculate BMI
+      const bmi = weight / (height * height);
+
+      // Display BMI result
+      const resultElement = document.getElementById('result');
+
+      if (isNaN(bmi)) {
+        resultElement.textContent = 'Please enter valid weight and height.';
+      } else {
+        resultElement.textContent = `Your BMI is: ${bmi.toFixed(2)}`;
+
+        // Provide feedback based on BMI
+        if (bmi < 18.5) {
+          resultElement.textContent += ' (Underweight - consider eating more healthy food)';
+        } else if (bmi >= 18.5 && bmi < 25) {
+          resultElement.textContent += ' (Normal weight - keep up the good work)';
+        } else if (bmi >= 25 && bmi < 30) {
+          resultElement.textContent += ' (Overweight - consider exercising more)';
+        } else {
+          resultElement.textContent += ' (Obese - consult with a healthcare professional)';
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

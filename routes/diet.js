@@ -88,8 +88,15 @@ router.get('/chest', (req, res) => {
         user: req.user,
     });
 });
+
 router.get('/legs', (req, res) => {
     return res.render("legs", {
+        user: req.user,
+    });
+});
+
+router.get('/bmi', (req, res) => {
+    return res.render("bmi", {
         user: req.user,
     });
 });
